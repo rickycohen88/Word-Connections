@@ -1,0 +1,9 @@
+body {
+    background-color: azure;
+}
+
+.menu {
+    width: 100%;
+    text-align: center;
+    margin-left: 800px;
+}
