@@ -18,5 +18,11 @@ $.ajax({url:currentSearch,method: "GET"})
     .then(function(responce){
 
         }
-    )
+    );
     
+
+$("#search-button").on("click", function () {
+    console.log("search button clicked");
+    
+});
+
