@@ -8,6 +8,7 @@
 
 let searchText = $("#textarea");
 let searchBtn = $("#search-button");
+let idNumber = 0;
 
 let spanishCall = "https://www.dictionaryapi.com/api/v3/references/spanish/json/"+searchText+"?key=b1823e2d-0dd8-4ab4-bfa5-f67523265df8";
 let dict = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/"+searchText+"?key=097e4f17-51a3-4c33-868e-e4192b97f92a";
@@ -30,11 +31,14 @@ searchBtn.on("click", function () {
 function SetHistory() {
     let textItem = searchText.val();
     let newListItem = $("<li>");
+    newListItem.attr("id", idNumber);
+    newListItem.attr("class", "historyListItems");
     newListItem.append(textItem);
-    newListItem.on("click", function(){testFunction()});
-    $("#history-items").append(newListItem);
+    newListItem.on("click", function(){historyClick()});
+    $("#history-items").prepend(newListItem);
+    idNumber++;
 };
 
-function testFunction() {
+function historyClick() {
     console.log("hi");
 };

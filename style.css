@@ -7,3 +7,19 @@ body {
     text-align: center;
     margin-left: 800px;
 }
+
+.historyListItems{
+    border: solid grey 1px;
+    margin-bottom: 5px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.card-divider{
+    justify-content: center;
+}
+
+.historyListItems:hover{
+    cursor: pointer;
+}
