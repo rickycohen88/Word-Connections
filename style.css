@@ -3,7 +3,12 @@ body {
 }
 
 .menu {
-    width: 100%;
+    /* width: 100%;
     text-align: center;
-    margin-left: 800px;
+    margin-left: 800px; */
+    justify-content: center;
 }
+p {
+ text-align: center;
+}
+
