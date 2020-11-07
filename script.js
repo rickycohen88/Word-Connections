@@ -26,3 +26,19 @@ $("#search-button").on("click", function () {
     
 });
 
+  // google api stuffssssss
+// google api main call  https://www.googleapis.com/youtube/v3
+function googleApi(){
+    let youtubeAPI = "https://www.googleapis.com/youtube/v3/videos?part"
+
+    $.ajax({url:youtubeSearch,method: "GET"})
+    .then(function(responce){
+        console.log(responce);
+        }
+    )
+
+}
+
+  //'https://youtube.googleapis.com/youtube/v3/videos?part=firetrucks&chart=mostPopular&key=[YOUR_API_KEY]' 
+
+
