@@ -7,22 +7,34 @@
 
 
 let searchText = $("#textarea");
+let searchBtn = $("#search-button");
 
 let spanishCall = "https://www.dictionaryapi.com/api/v3/references/spanish/json/"+searchText+"?key=b1823e2d-0dd8-4ab4-bfa5-f67523265df8";
 let dict = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/"+searchText+"?key=097e4f17-51a3-4c33-868e-e4192b97f92a";
 let thes = "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/"+searchText+"?key=20fc6f58-5554-4511-aeb4-73b02f754ec4";
 
 
-let  currentSearch;
-$.ajax({url:currentSearch,method: "GET"})
-    .then(function(responce){
-
-        }
-    );
+//let  currentSearch;
+//$.ajax({url:currentSearch,method: "GET"})
+//    .then(function(responce){
+//
+//        }
+//    );
     
 
-$("#search-button").on("click", function () {
-    console.log("search button clicked");
-    
+
+searchBtn.on("click", function () {
+    SetHistory();
 });
 
+function SetHistory() {
+    let textItem = searchText.val();
+    let newListItem = $("<li>");
+    newListItem.append(textItem);
+    newListItem.on("click", function(){testFunction()});
+    $("#history-items").append(newListItem);
+};
+
+function testFunction() {
+    console.log("hi");
+};
