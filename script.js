@@ -6,32 +6,64 @@
 // key 20fc6f58-5554-4511-aeb4-73b02f754ec4
 
 
-let searchText = $("#textarea");
+
+let searchText = $("#textarea").value;
+let searchBtn = $("#search-button");
+let idNumber = 0;
 
 let spanishCall = "https://www.dictionaryapi.com/api/v3/references/spanish/json/"+searchText+"?key=b1823e2d-0dd8-4ab4-bfa5-f67523265df8";
 let dict = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/"+searchText+"?key=097e4f17-51a3-4c33-868e-e4192b97f92a";
 let thes = "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/"+searchText+"?key=20fc6f58-5554-4511-aeb4-73b02f754ec4";
 
 
-let  currentSearch;
-$.ajax({url:currentSearch,method: "GET"})
-    .then(function(responce){
-
-        }
-    );
+//let  currentSearch;
+//$.ajax({url:currentSearch,method: "GET"})
+//    .then(function(responce){}
+//   );
     
 
 $("#search-button").on("click", function () {
     console.log("search button clicked");
+    googleApi();
+    console.log("called google api");
     
 });
+searchBtn.on("click", function () {
+    SetHistory();
+});
+
+function SetHistory() {
+    let textItem = searchText.val();
+    let newListItem = $("<li>");
+    newListItem.attr("id", idNumber);
+    newListItem.attr("class", "historyListItems");
+    newListItem.append(textItem);
+    newListItem.on("click", function(){historyClick()});
+    $("#history-items").prepend(newListItem);
+    idNumber++;
+};
+
+function historyClick() {
+    console.log("hi");
+};
+
 
   // google api stuffssssss
-// google api main call  https://www.googleapis.com/youtube/v3
-function googleApi(){
-    let youtubeAPI = "https://www.googleapis.com/youtube/v3/videos?part"
+/*curl \
+  'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&type=video&key=[YOUR_API_KEY]' \
+  --header 'Authorization: Bearer [YOUR_ACCESS_TOKEN]' \
+  --header 'Accept: application/json' \
+  --compressed
+*/
 
-    $.ajax({url:youtubeSearch,method: "GET"})
+function googleApi(){
+    let searchText = $("#textarea").value;
+    console.log(searchText);
+    console.log(typeof searchText);
+    let youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q="+searchText+"&type=video&key=AIzaSyA8fMnoVL3CYKS1ikwHY_Wuv2GXFDSoPoo"
+    console.log(youtubeAPI);
+
+    $.ajax({url:youtubeAPI,method: "GET"})
     .then(function(responce){
         console.log(responce);
         }
@@ -40,5 +72,6 @@ function googleApi(){
 }
 
   //'https://youtube.googleapis.com/youtube/v3/videos?part=firetrucks&chart=mostPopular&key=[YOUR_API_KEY]' 
+ 
 
 
