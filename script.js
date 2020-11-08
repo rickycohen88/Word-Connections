@@ -57,24 +57,28 @@ function historyClick() {
 */
 
 function googleApi(){
-    let searchText = $("#textarea").value;
+    searchText = document.getElementById("textarea").value;
     console.log(searchText);
     console.log(typeof searchText);
-    let youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q="+searchText+"&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified&key=AIzaSyA8fMnoVL3CYKS1ikwHY_Wuv2GXFDSoPoo"
+    let youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?&maxResults=10&order=relevance&q="+searchText+"&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified&key=AIzaSyA8fMnoVL3CYKS1ikwHY_Wuv2GXFDSoPoo"
     console.log(youtubeAPI);
 
     $.ajax({url:youtubeAPI,method: "GET"})
     .then(function(responce){
         console.log(responce);
         googleObject=responce;
+        createVideoCarusel();
         }
     )
-
+        
 }
 
 
  function createVideoCarusel(){
-   video1 = "https://www.youtube.com/embed/"+googleObject.items[0].videoId;
+  let video1 = "https://www.youtube.com/embed/"+googleObject.items[0].Id.videoID;
+  console.log(video1);
+  document.getElementById("ytPlayer").setAttribute("src",video1);
+ 
    // ect
 
  }
