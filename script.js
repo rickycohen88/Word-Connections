@@ -6,7 +6,7 @@
 // key 20fc6f58-5554-4511-aeb4-73b02f754ec4
 
 
-
+let googleObject;
 let searchText = $("#textarea").value;
 let searchBtn = $("#search-button");
 let idNumber = 0;
@@ -60,18 +60,19 @@ function googleApi(){
     let searchText = $("#textarea").value;
     console.log(searchText);
     console.log(typeof searchText);
-    let youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q="+searchText+"&type=video&key=AIzaSyA8fMnoVL3CYKS1ikwHY_Wuv2GXFDSoPoo"
+    let youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q="+searchText+"&type=video&key=AIzaSyA8fMnoVL3CYKS1ikwHY_Wuv2GXFDSoPoo"
     console.log(youtubeAPI);
 
     $.ajax({url:youtubeAPI,method: "GET"})
     .then(function(responce){
         console.log(responce);
+        googleObject=responce;
         }
     )
 
 }
 
-  //'https://youtube.googleapis.com/youtube/v3/videos?part=firetrucks&chart=mostPopular&key=[YOUR_API_KEY]' 
+
  
 
 
