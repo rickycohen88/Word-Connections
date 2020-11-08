@@ -60,7 +60,7 @@ function googleApi(){
     let searchText = $("#textarea").value;
     console.log(searchText);
     console.log(typeof searchText);
-    let youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q="+searchText+"&type=video&key=AIzaSyA8fMnoVL3CYKS1ikwHY_Wuv2GXFDSoPoo"
+    let youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q="+searchText+"&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified&key=AIzaSyA8fMnoVL3CYKS1ikwHY_Wuv2GXFDSoPoo"
     console.log(youtubeAPI);
 
     $.ajax({url:youtubeAPI,method: "GET"})
@@ -73,6 +73,15 @@ function googleApi(){
 }
 
 
- 
+ function createVideoCarusel(){
+   video1 = "https://www.youtube.com/embed/"+googleObject.items[0].videoId;
+   // ect
+
+ }
 
 
+//!!!!!!!!!!!       this is the basics for embeded only vids    !!!!!!!!!!!!!!!!!!!!!!
+ /*'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&order=relevance&q=banana&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified&key=[YOUR_API_KEY]' \
+  --header 'Accept: application/json' \
+  --compressed
+ */
