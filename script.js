@@ -5,9 +5,9 @@
 // colligate thes https://www.dictionaryapi.com/api/v3/references/thesaurus/json/umpire?key=your-api-key
 // key 20fc6f58-5554-4511-aeb4-73b02f754ec4
 
-
 let googleObject;
 let searchText = $("#textarea").value;
+
 let searchBtn = $("#search-button");
 let idNumber = 0;
 
@@ -16,20 +16,19 @@ let dict = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/"+se
 let thes = "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/"+searchText+"?key=20fc6f58-5554-4511-aeb4-73b02f754ec4";
 
 
-//let  currentSearch;
-//$.ajax({url:currentSearch,method: "GET"})
-//    .then(function(responce){}
-//   );
+
     
 
 $("#search-button").on("click", function () {
     console.log("search button clicked");
     googleApi();
     console.log("called google api");
+
 })
 
 
 searchBtn.on("click", function(){
+
     SetHistory();
 })
 
