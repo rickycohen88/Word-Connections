@@ -143,13 +143,6 @@ p {
     color: #8a8a8a;
   }
 
-  
-
-
- 
-
-    border-radius: 15px;
-}
 
 .card-divider{
     justify-content: center;
@@ -158,4 +151,18 @@ p {
 .historyListItems:hover{
     cursor: pointer;
 }
+
+
+ 
+
+
+
+.card-divider{
+    justify-content: center;
+}
+
+.historyListItems:hover{
+    cursor: pointer;
+}
+
 

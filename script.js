@@ -23,16 +23,15 @@ $("#search-button").on("click", function () {
     console.log("search button clicked");
     googleApi();
     console.log("called google api");
-   
+
+})
 
 
-searchBtn.on("click", function () {
+searchBtn.on("click", function(){
+
     SetHistory();
+})
 
-});
-searchBtn.on("click", function () {
-    SetHistory();
-});
 
 function SetHistory() {
     let textItem = searchText.val();
@@ -43,11 +42,11 @@ function SetHistory() {
     newListItem.on("click", function(){historyClick()});
     $("#history-items").prepend(newListItem);
     idNumber++;
-};
+}
 
 function historyClick() {
     console.log("hi");
-};
+}
 
 
   // google api stuffssssss
@@ -71,10 +70,11 @@ function googleApi(){
         googleObject=responce;
         console.log(googleObject);
         createVideoCarusel();
-        }
-    )
-        
+        })
+    
 }
+
+
 
 
  function createVideoCarusel(){
@@ -83,31 +83,7 @@ function googleApi(){
   let video2 = "https://www.youtube.com/embed/"+video1;
   console.log(video2);
   document.getElementById("ytPlayer").setAttribute("src",video2);
+ };
  
    // ect
-
- }
-
-
-
-//!!!!!!!!!!!       this is the basics for embeded only vids    !!!!!!!!!!!!!!!!!!!!!!
- /*'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&order=relevance&q=banana&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified&key=[YOUR_API_KEY]' \
-  --header 'Accept: application/json' \
-  --compressed
- */
-
-function SetHistory() {
-    let textItem = searchText.val();
-    let newListItem = $("<li>");
-    newListItem.attr("id", idNumber);
-    newListItem.attr("class", "historyListItems");
-    newListItem.append(textItem);
-    newListItem.on("click", function(){historyClick()});
-    $("#history-items").prepend(newListItem);
-    idNumber++;
-};
-
-function historyClick() {
-    console.log("hi");
-};
 
