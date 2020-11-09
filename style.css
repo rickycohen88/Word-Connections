@@ -3,8 +3,19 @@ body {
 }
 
 .menu {
-    width: 100%;
+    justify-content: center;
+}
+
+p {
+ text-align: center;
+}
+
+.historyListItems{
+    border: solid grey 1px;
+    margin-bottom: 5px;
+    padding: 5px;
     text-align: center;
+
     margin-left: 800px;
 }
 p {
@@ -136,3 +147,15 @@ p {
 
 
  
+
+    border-radius: 15px;
+}
+
+.card-divider{
+    justify-content: center;
+}
+
+.historyListItems:hover{
+    cursor: pointer;
+}
+

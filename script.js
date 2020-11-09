@@ -5,9 +5,9 @@
 // colligate thes https://www.dictionaryapi.com/api/v3/references/thesaurus/json/umpire?key=your-api-key
 // key 20fc6f58-5554-4511-aeb4-73b02f754ec4
 
-
 let googleObject;
 let searchText = $("#textarea").value;
+
 let searchBtn = $("#search-button");
 let idNumber = 0;
 
@@ -16,17 +16,19 @@ let dict = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/"+se
 let thes = "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/"+searchText+"?key=20fc6f58-5554-4511-aeb4-73b02f754ec4";
 
 
-//let  currentSearch;
-//$.ajax({url:currentSearch,method: "GET"})
-//    .then(function(responce){}
-//   );
+
     
 
 $("#search-button").on("click", function () {
     console.log("search button clicked");
     googleApi();
     console.log("called google api");
-    
+   
+
+
+searchBtn.on("click", function () {
+    SetHistory();
+
 });
 searchBtn.on("click", function () {
     SetHistory();
@@ -87,8 +89,25 @@ function googleApi(){
  }
 
 
+
 //!!!!!!!!!!!       this is the basics for embeded only vids    !!!!!!!!!!!!!!!!!!!!!!
  /*'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&order=relevance&q=banana&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified&key=[YOUR_API_KEY]' \
   --header 'Accept: application/json' \
   --compressed
  */
+
+function SetHistory() {
+    let textItem = searchText.val();
+    let newListItem = $("<li>");
+    newListItem.attr("id", idNumber);
+    newListItem.attr("class", "historyListItems");
+    newListItem.append(textItem);
+    newListItem.on("click", function(){historyClick()});
+    $("#history-items").prepend(newListItem);
+    idNumber++;
+};
+
+function historyClick() {
+    console.log("hi");
+};
+
