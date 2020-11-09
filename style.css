@@ -132,7 +132,12 @@ p {
     color: #8a8a8a;
   }
 
-  
 
+.card-divider{
+    justify-content: center;
+}
 
- 
+.historyListItems:hover{
+    cursor: pointer;
+}
+
