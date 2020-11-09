@@ -67,6 +67,7 @@ function googleApi(){
     .then(function(responce){
         console.log(responce);
         googleObject=responce;
+        console.log(googleObject);
         createVideoCarusel();
         }
     )
@@ -75,9 +76,11 @@ function googleApi(){
 
 
  function createVideoCarusel(){
-  let video1 = "https://www.youtube.com/embed/"+googleObject.items[0].Id.videoID;
+    let video1 = googleObject.items[0].id.videoId;
   console.log(video1);
-  document.getElementById("ytPlayer").setAttribute("src",video1);
+  let video2 = "https://www.youtube.com/embed/"+video1;
+  console.log(video2);
+  document.getElementById("ytPlayer").setAttribute("src",video2);
  
    // ect
 
