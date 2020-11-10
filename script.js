@@ -6,35 +6,26 @@
 // key 20fc6f58-5554-4511-aeb4-73b02f754ec4
 
 let googleObject;
-let searchText = $("#textarea").value;
+let searchValue = $("#textarea");
+let apiKey = "&key=AIzaSyAa4_ZX-UHSjDpcWGY4M_rfq0jS3mbIrbI";
 
 let searchBtn = $("#search-button");
 let idNumber = 0;
 
-let spanishCall = "https://www.dictionaryapi.com/api/v3/references/spanish/json/"+searchText+"?key=b1823e2d-0dd8-4ab4-bfa5-f67523265df8";
-let dict = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/"+searchText+"?key=097e4f17-51a3-4c33-868e-e4192b97f92a";
-let thes = "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/"+searchText+"?key=20fc6f58-5554-4511-aeb4-73b02f754ec4";
+//let spanishCall = "https://www.dictionaryapi.com/api/v3/references/spanish/json/"+searchText+"?key=b1823e2d-0dd8-4ab4-bfa5-f67523265df8";
+//let dict = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/"+searchText+"?key=097e4f17-51a3-4c33-868e-e4192b97f92a";
+//let thes = "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/"+searchText+"?key=20fc6f58-5554-4511-aeb4-73b02f754ec4";
 
-
-
-    
-
-$("#search-button").on("click", function () {
-    console.log("search button clicked");
-    googleApi();
-    console.log("called google api");
-
-})
 
 
 searchBtn.on("click", function(){
-
-    SetHistory();
+  SetHistory();
+  googleApi();
 })
 
 
 function SetHistory() {
-    let textItem = searchText.val();
+    let textItem = searchValue.val();
     let newListItem = $("<li>");
     newListItem.attr("id", idNumber);
     newListItem.attr("class", "historyListItems");
@@ -59,9 +50,9 @@ function historyClick() {
 
 function googleApi(){
     searchText = document.getElementById("textarea").value;
-    console.log(searchText);
-    console.log(typeof searchText);
-    let youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?&maxResults=10&order=relevance&q="+searchText+"&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified&key=AIzaSyA8fMnoVL3CYKS1ikwHY_Wuv2GXFDSoPoo"
+    //console.log(searchText);
+    //console.log(typeof searchText);
+    let youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?&maxResults=10&order=relevance&q="+ searchText+ "&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified" + apiKey;
     console.log(youtubeAPI);
 
     $.ajax({url:youtubeAPI,method: "GET"})
@@ -70,7 +61,7 @@ function googleApi(){
         googleObject=responce;
         console.log(googleObject);
         createVideoCarusel();
-        })
+      })
     
 }
 
