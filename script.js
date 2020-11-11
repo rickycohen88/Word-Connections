@@ -83,22 +83,16 @@ function googleApi(){
   document.getElementById("ytPlayer").setAttribute("src",video2);
  };
  
- <main>
- <form>
-   <label for="search">search</label>
-   <input id="search" type="search" />
-   <button id="btnSearch">Go</button>
- </form>
- <div class="out"></div>
-</main>
+ 
 
  let APIKEY = "tuMT3OKsTT4SHjMMy9Gye7GGpAmq9wSw";
       document.addEventListener("DOMContentLoaded", init);
       function init() {
-        document.getElementById("btnSearch").addEventListener("click", ev => {
+        document.getElementById("search-button").addEventListener("click", ev => {
           ev.preventDefault(); //to stop the page reload
           let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
-          let str = document.getElementById("search").value.trim();
+          let str = document.getElementById("textarea").value.trim();
+          console.log(str);
           url = url.concat(str);
           console.log(url);
           fetch(url)
