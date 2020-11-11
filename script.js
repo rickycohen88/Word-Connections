@@ -125,8 +125,6 @@ $.ajax({
   url: giphyURL,
   method: "GET"
 }).then(function (response) {
-  
-  console.log(response.data[0].url);
   $("#this-img").attr("src", response.data[0].images.original.url);
 })
 }
