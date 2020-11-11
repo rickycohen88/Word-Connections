@@ -6,8 +6,9 @@
 // key 20fc6f58-5554-4511-aeb4-73b02f754ec4
 
 let googleObject;
+let googleobjectcounter =0;
 let searchText = $("#textarea").value;
-
+let video0 = "https://www.youtube.com/embed/";
 let searchBtn = $("#search-button");
 let idNumber = 0;
 
@@ -79,12 +80,41 @@ function googleApi(){
 
 
  function createVideoCarusel(){
-    let video1 = googleObject.items[0].id.videoId;
+   googleobjectcounter =0;
+    let video1 = googleObject.items[googleobjectcounter].id.videoId;
   console.log(video1);
-  let video2 = "https://www.youtube.com/embed/"+video1;
+  let video2 = video0+video1;
   console.log(video2);
   document.getElementById("ytPlayer").setAttribute("src",video2);
  };
  
-   // ect
-
+$("#next-ytplayer").on("click", function(){
+    if (googleObject == undefined){
+    }
+    else{
+      console.log(typeof googleObject);
+      googleobjectcounter ++;
+      console.log(googleobjectcounter);
+      let video3 = googleObject.items[googleobjectcounter].id.videoId;
+      console.log(video3);
+      document.getElementById("ytPlayer").setAttribute("src",video0+video3);
+    }
+  }
+)
+$("#previous-ytplayer").on("click", function(){
+  if (googleObject == undefined){
+      ;
+  }
+  else{
+    console.log(typeof googleObject);
+    if (googleObject !== 0){
+      googleobjectcounter --;
+    }
+    else{
+      googleobjectcounter =0;
+    }
+    let video3 = googleObject.items[googleobjectcounter].id.videoId;
+    document.getElementById("ytPlayer").setAttribute("src",video0+video3);
+  }
+}
+)
