@@ -51,52 +51,32 @@ function historyClick() {
 
 
   // google api stuffssssss
-/*curl \
-  'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&type=video&key=[YOUR_API_KEY]' \  
-  UNRESTRICTED: AIzaSyAa4_ZX-UHSjDpcWGY4M_rfq0jS3mbIrbI   Restricted to git hub url: AIzaSyA8fMnoVL3CYKS1ikwHY_Wuv2GXFDSoPoo
-    console.log(youtubeAPI);
-  --header 'Authorization: Bearer [YOUR_ACCESS_TOKEN]' \
-  --header 'Accept: application/json' \
-  --compressed
-*/
 
 function googleApi(){
     searchText = document.getElementById("textarea").value;
-    console.log(searchText);
-    console.log(typeof searchText);
     let youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?&maxResults=10&order=relevance&q="+searchText+"&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified&key=AIzaSyAa4_ZX-UHSjDpcWGY4M_rfq0jS3mbIrbI"
 
     $.ajax({url:youtubeAPI,method: "GET"})
     .then(function(responce){
-        console.log(responce);
         googleObject=responce;
-        console.log(googleObject);
         createVideoCarusel();
         })
     
 }
 
-
-
-
- function createVideoCarusel(){
+function createVideoCarusel(){
    googleobjectcounter =0;
     let video1 = googleObject.items[googleobjectcounter].id.videoId;
-  console.log(video1);
-  let video2 = video0+video1;
-  console.log(video2);
+    let video2 = video0+video1;
   document.getElementById("ytPlayer").setAttribute("src",video2);
- };
- 
+ }; 
 $("#next-ytplayer").on("click", function(){
     if (googleObject == undefined){
+      ;
     }
     else{
-      console.log(typeof googleObject);
       googleobjectcounter ++;
-      console.log(googleobjectcounter);
       let video3 = googleObject.items[googleobjectcounter].id.videoId;
-      console.log(video3);
       document.getElementById("ytPlayer").setAttribute("src",video0+video3);
     }
   }
@@ -107,14 +87,14 @@ $("#previous-ytplayer").on("click", function(){
   }
   else{
     console.log(typeof googleObject);
-    if (googleObject !== 0){
+    if (googleobjectcounter !== 0){
       googleobjectcounter --;
     }
     else{
-      googleobjectcounter =0;
+      googleobjectcounter = 0;
     }
     let video3 = googleObject.items[googleobjectcounter].id.videoId;
     document.getElementById("ytPlayer").setAttribute("src",video0+video3);
+    }
   }
-}
 )
