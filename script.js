@@ -5,6 +5,7 @@
 // colligate thes https://www.dictionaryapi.com/api/v3/references/thesaurus/json/umpire?key=your-api-key
 // key 20fc6f58-5554-4511-aeb4-73b02f754ec4
 
+
 let googleObject;
 let searchText = $("#textarea").value;
 
@@ -15,9 +16,6 @@ let spanishCall = "https://www.dictionaryapi.com/api/v3/references/spanish/json/
 let dict = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/"+searchText+"?key=097e4f17-51a3-4c33-868e-e4192b97f92a";
 let thes = "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/"+searchText+"?key=20fc6f58-5554-4511-aeb4-73b02f754ec4";
 
-
-
-    
 
 $("#search-button").on("click", function () {
     console.log("search button clicked");
@@ -85,5 +83,45 @@ function googleApi(){
   document.getElementById("ytPlayer").setAttribute("src",video2);
  };
  
+ <main>
+ <form>
+   <label for="search">search</label>
+   <input id="search" type="search" />
+   <button id="btnSearch">Go</button>
+ </form>
+ <div class="out"></div>
+</main>
+ let APIKEY = "tuMT3OKsTT4SHjMMy9Gye7GGpAmq9wSw";
+      document.addEventListener("DOMContentLoaded", init);
+      function init() {
+        document.getElementById("btnSearch").addEventListener("click", ev => {
+          ev.preventDefault(); //to stop the page reload
+          let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
+          let str = document.getElementById("search").value.trim();
+          url = url.concat(str);
+          console.log(url);
+          fetch(url)
+            .then(response => response.json())
+            .then(content => {
+              //  data, pagination, meta
+              console.log(content.data);
+              console.log("META", content.meta);
+              let fig = document.createElement("figure");
+              let img = document.createElement("img");
+              let fc = document.createElement("figcaption");
+              img.src = content.data[0].images.downsized.url;
+              img.alt = content.data[0].title;
+              fc.textContent = content.data[0].title;
+              fig.appendChild(img);
+              fig.appendChild(fc);
+              let out = document.querySelector(".out");
+              out.insertAdjacentElement("afterbegin", fig);
+              document.querySelector("#search").value = "";
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        });
+      }
    // ect
 
