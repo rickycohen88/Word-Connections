@@ -51,7 +51,9 @@ function historyClick() {
 
   // google api stuffssssss
 /*curl \
-  'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&type=video&key=[YOUR_API_KEY]' \
+  'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&type=video&key=[YOUR_API_KEY]' \  
+  UNRESTRICTED: AIzaSyAa4_ZX-UHSjDpcWGY4M_rfq0jS3mbIrbI   Restricted to git hub url: AIzaSyA8fMnoVL3CYKS1ikwHY_Wuv2GXFDSoPoo
+    console.log(youtubeAPI);
   --header 'Authorization: Bearer [YOUR_ACCESS_TOKEN]' \
   --header 'Accept: application/json' \
   --compressed
@@ -61,8 +63,7 @@ function googleApi(){
     searchText = document.getElementById("textarea").value;
     console.log(searchText);
     console.log(typeof searchText);
-    let youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?&maxResults=10&order=relevance&q="+searchText+"&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified&key=AIzaSyA8fMnoVL3CYKS1ikwHY_Wuv2GXFDSoPoo"
-    console.log(youtubeAPI);
+    let youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?&maxResults=10&order=relevance&q="+searchText+"&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified&key=AIzaSyAa4_ZX-UHSjDpcWGY4M_rfq0jS3mbIrbI"
 
     $.ajax({url:youtubeAPI,method: "GET"})
     .then(function(responce){
