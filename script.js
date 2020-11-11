@@ -16,6 +16,7 @@ let idNumber = 0;
 
 searchBtn.on("click", function(){
   let textItem = searchValue.val();
+  searchValue.empty();
   SetHistory(textItem);
   googleApi(textItem);
 })
@@ -66,6 +67,3 @@ function createVideoCarusel(){
   console.log(video2);
   document.getElementById("ytPlayer").setAttribute("src",video2);
  };
- 
-   // ect
-
