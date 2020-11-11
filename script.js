@@ -5,6 +5,9 @@
 // colligate thes https://www.dictionaryapi.com/api/v3/references/thesaurus/json/umpire?key=your-api-key
 
 let googleObject;
+let googleObjectCounter =0;
+//let searchText = $("#textarea").value;
+let video0 = "https://www.youtube.com/embed/";
 let searchValue = $("#textarea");
 let searchBtn = $("#search-button");
 let idNumber = 0;
@@ -12,6 +15,14 @@ let idNumber = 0;
 //let spanishCall = "https://www.dictionaryapi.com/api/v3/references/spanish/json/"+searchText+"?key=b1823e2d-0dd8-4ab4-bfa5-f67523265df8";
 //let dict = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/"+searchText+"?key=097e4f17-51a3-4c33-868e-e4192b97f92a";
 //let thes = "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/"+searchText+"?key=20fc6f58-5554-4511-aeb4-73b02f754ec4";
+let storageKey = 1;
+ function setLocalStorage() {
+  // set search term to localStorage
+  localStorage.setItem(storageKey, $("#textarea").val());
+  storageKey++;
+  $("#textarea").val("");
+}
+
 
 searchBtn.on("click", function () {
   let textItem = searchValue.val();
@@ -19,6 +30,7 @@ searchBtn.on("click", function () {
   SetHistory(textItem);
   googleApi(textItem);
   dictionaryAPI(textItem);
+  setLocalStorage();
 });
 
 function SetHistory(textItem) {
@@ -37,6 +49,10 @@ function getHistory(textItem) {
   googleApi(textItem);
   dictionaryAPI(textItem);
 }
+
+
+  // google api stuffssssss
+
 
 // google api stuffssssss
 /*curl \
@@ -70,6 +86,34 @@ function createVideoCarusel() {
   console.log(video2);
   document.getElementById("ytPlayer").setAttribute("src", video2);
 }
+$("#next-ytplayer").on("click", function(){
+    if (googleObject == undefined){
+      ;
+    }
+    else{
+      googleObjectCounter ++;
+      let video3 = googleObject.items[googleObjectCounter].id.videoId;
+      document.getElementById("ytPlayer").setAttribute("src",video0+video3);
+    }
+  }
+)
+$("#previous-ytplayer").on("click", function(){
+  if (googleObject == undefined){
+      ;
+  }
+  else{
+    console.log(typeof googleObject);
+    if (googleObjectCounter !== 0){
+      googleObjectCounter --;
+    }
+    else{
+      googleObjectCounter = 0;
+    }
+    let video3 = googleObject.items[googleObjectCounter].id.videoId;
+    document.getElementById("ytPlayer").setAttribute("src",video0+video3);
+    }
+  }
+)
 
 function dictionaryAPI(searchText) {
 $("#definitions").empty();
