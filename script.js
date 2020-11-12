@@ -94,6 +94,8 @@ function googleApi(){
           let str = document.getElementById("textarea").value.trim();
           console.log(str);
           url = url.concat(str);
+          // url = url + str
+          // url += str
           console.log(url);
           fetch(url)
             .then(response => response.json())
@@ -102,14 +104,19 @@ function googleApi(){
               console.log(content.data);
               console.log("META", content.meta);
               let fig = document.createElement("figure");
+              // let img = document.querySelector(".target")
               let img = document.createElement("img");
               let fc = document.createElement("figcaption");
               img.src = content.data[0].images.downsized.url;
               img.alt = content.data[0].title;
               fc.textContent = content.data[0].title;
+            
               fig.appendChild(img);
               fig.appendChild(fc);
+              //keep the above the same, just add the stuff to the other div
               let out = document.querySelector(".out");
+              let target = document.querySelector(".target");
+              target.remove()
               out.insertAdjacentElement("afterbegin", fig);
               document.querySelector("#search").value = "";
             })
