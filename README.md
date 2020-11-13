@@ -41,9 +41,12 @@ just download the files directly for git hub.
 
 ### Credits
 * Trillogy Education
+* White Board app [Link](https://awwapp.com/)
+* Github [Link](https://github.com/)
 * Gify-api [Link](https://developers.giphy.com/)
 * Webster Merriam [Link](https://dictionaryapi.com/)
 * YouTube Api [Link](https://developers.google.com/youtube/v3)
+
 
 ### Contributing
 Pull requests are welcome. For major changes,<br>
