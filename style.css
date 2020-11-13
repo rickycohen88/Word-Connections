@@ -22,12 +22,10 @@ color:white  ;
   font-weight: bold;
   text-shadow:8px 11px #171766;
   font-size: 100px;
-  font-family: 'Italianno';
-
-  
+  font-family: 'Italianno';  
   }
 
-  .subheader {
+.subheader {
   color:#ffffff;
   font-family: 'IM Fell Double Pica', serif;
   font-size: 35px;
@@ -90,7 +88,26 @@ h4{
 }
 
 .card {
-  margin-left:100px;
-  float:right;
   box-shadow: 5px 10px #000033;
+}
+
+.historyListItems{
+  border: solid grey 1px;
+  margin-bottom: 5px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 15px;
+  color: black;
+}
+
+.historyListItems:hover{
+  cursor: pointer;
+}
+   
+.card-divider{
+  justify-content: center;
+}
+
+#definitions{
+  font-size: 20px;
 }
