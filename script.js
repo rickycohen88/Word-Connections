@@ -13,11 +13,7 @@ let googleObjectCounter =0;
   let apiKey = "&key=AIzaSyAj881SFPh0INV0_XYrv_22k-B49JmCeLE";
   let apikey2 = "&key=AIzaSyB599JvETBTJ2HRgbBTYT42i1RPXhbTulc";
   let apikey3 = "&key=AIzaSyBwUyYhprstsPRi-QH4EtlJewrpSRlMx4o";
-  let apiKey4 = "&key=AIzaSyAa4_ZX-UHSjDpcWGY4M_rfq0jS3mbIrbI";
-  
-  let apikey5 = "&key=AIzaSyCE23aj-SqDFQJB2ExwawnFA27Vi9SPOyA";
-  
-  let apiKeyArr =[apiKey,apikey2,apikey3,apikey4,apikey5];
+  let apiKeyArr =[apiKey,apikey2,apikey3];
   let currApiKey = 0;
   
 
@@ -59,10 +55,9 @@ function getHistory(textItem) {
 
 function googleApi() {
   
+  searchText = $("#textarea").val();
 let youtubeAPI =
-    "https://youtube.googleapis.com/youtube/v3/search?&maxResults=10&order=relevance&q=" +
-    searchText +
-    "&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified" +
+    "https://youtube.googleapis.com/youtube/v3/search?&maxResults=10&order=relevance&q="+searchText+"&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified" +
     apiKeyArr[currApiKey];
     
     console.log(currApiKey);
@@ -85,6 +80,7 @@ $(document).ajaxError(function(event,xhr){
     if(unicycle.responseJSON.error.code=403){
      currApiKey++;
      console.log("you have activated my trap card");
+     googleApi();
      
     }
 });
