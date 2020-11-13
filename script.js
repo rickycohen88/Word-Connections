@@ -44,7 +44,8 @@ function getHistory(textItem) {
 }
 
 function googleApi(searchText) {
-  let apiKey = "&key=AIzaSyAa4_ZX-UHSjDpcWGY4M_rfq0jS3mbIrbI";
+  //let apiKey = "&key=AIzaSyAa4_ZX-UHSjDpcWGY4M_rfq0jS3mbIrbI";
+  let apiKey = "&key=AIzaSyAj881SFPh0INV0_XYrv_22k-B49JmCeLE";
   let youtubeAPI =
     "https://youtube.googleapis.com/youtube/v3/search?&maxResults=10&order=relevance&q=" +
     searchText +

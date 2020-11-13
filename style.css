@@ -85,6 +85,8 @@ h4{
   color:white;
   font-size: 30px;
   border-radius: 15px;
+  width: 100%;
+  justify-content: center;
 }
 
 .card {
