@@ -10,7 +10,7 @@ let storageKey = 1;
 //google api global variables
 let googleObject;
 let googleObjectCounter =0;
-  let apiKey = "&key=AIzaSyAj881SFPh0INV0_XYrv_22k-B49JmCeLE  ";
+  let apiKey = "&key=AIzaSyAj881SFPh0INV0_XYrv_22k-B49JmCeLE";
   let apikey2 = "&key=AIzaSyB599JvETBTJ2HRgbBTYT42i1RPXhbTulc";
   let apikey3 = "&key=AIzaSyBwUyYhprstsPRi-QH4EtlJewrpSRlMx4o";
   let apiKeyArr =[apiKey,apikey2,apikey3];
