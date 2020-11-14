@@ -1,14 +1,24 @@
-let googleObject;
-let googleObjectCounter =0;
 
-//let searchText = $("#textarea").value;
+
+let searchText = $("#textarea").value;
 let video0 = "https://www.youtube.com/embed/";
 let searchValue = $("#textarea");
 let searchBtn = $("#search-button");
 let idNumber = 0;
 let storageKey = 1;
 
-function setLocalStorage(textItem) {
+//google api global variables
+let googleObject;
+let googleObjectCounter =0;
+  let apiKey = "&key=AIzaSyAj881SFPh0INV0_XYrv_22k-B49JmCeLE";
+  let apikey2 = "&key=AIzaSyB599JvETBTJ2HRgbBTYT42i1RPXhbTulc";
+  let apikey3 = "&key=AIzaSyBwUyYhprstsPRi-QH4EtlJewrpSRlMx4o";
+  let apiKeyArr =[apiKey,apikey2,apikey3];
+  let currApiKey = 0;
+  
+
+
+    function setLocalStorage(textItem) {
   // set search term to localStorage
   localStorage.setItem(storageKey, textItem);
   storageKey++;
@@ -43,23 +53,37 @@ function getHistory(textItem) {
   giphyAPI(textItem);
 }
 
-function googleApi(searchText) {
-  //let apiKey = "&key=AIzaSyAa4_ZX-UHSjDpcWGY4M_rfq0jS3mbIrbI";
-  let apiKey = "&key=AIzaSyAj881SFPh0INV0_XYrv_22k-B49JmCeLE";
-  let youtubeAPI =
-    "https://youtube.googleapis.com/youtube/v3/search?&maxResults=10&order=relevance&q=" +
-    searchText +
-    "&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified" +
-    apiKey;
-  //console.log(youtubeAPI);
-
-  $.ajax({ url: youtubeAPI, method: "GET" }).then(function (responce) {
-    //console.log(responce);
+function googleApi() {
+  
+  searchText = $("#textarea").val();
+let youtubeAPI =
+    "https://youtube.googleapis.com/youtube/v3/search?&maxResults=10&order=relevance&q="+searchText+"&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified" +
+    apiKeyArr[currApiKey];
+    
+    console.log(currApiKey);
+    console.log(youtubeAPI);
+  
+    $.ajax({ url: youtubeAPI, method: "GET" }).then(function (responce) {
+    console.log(responce);
     googleObject = responce;
     //console.log(googleObject);
+
     createVideoCarusel();
   });
 }
+$(document).ajaxError(function(event,xhr){
+  console.log("ajax error function");
+  let bob = event;
+  let unicycle = xhr;
+  //console.log(xhr);
+  //console.log(unicycle.responseJSON.error.code);
+    if(unicycle.responseJSON.error.code=403){
+     currApiKey++;
+     console.log("you have activated my trap card");
+     googleApi();
+     
+    }
+});
 
 function createVideoCarusel() {
   let video1 = googleObject.items[0].id.videoId;
