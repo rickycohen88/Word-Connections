@@ -16,7 +16,7 @@ We then decided on the tools we would use ( css framework/api's). Next our team 
 
 
 ![Image](https://img.shields.io/badge/languages-html%20%7C%20css%20%7C%20javascript-blue)<br>
-![Image](https://img.shields.io/website?down_color=red&down_message=Down&style=plastic&up_color=Lightgreen&up_message=Up&url=https%3A%2F%2Fphillipmerriman.github.io%2FGroup-Project-1%2F)<br>
+![Image](https://img.shields.io/website?down_color=red&down_message=Down&style=plastic&up_color=Lightgreen&up_message=Up&url=https%3A%2F%2Frickycohen88.github.io%2FWord-Connections%2F)<br>
 [![Support Server](https://img.shields.io/discord/758849764959191071.svg?color=7289da&label=UofMcohort&logo=discord&style=flat-square)](https://discord.gg/HaWKVB6)<br>
 [![Support Server](https://img.shields.io/discord/568508644669390905.svg?color=7289da&label=Personal&logo=discord&style=pastic)](https://discord.gg/Sj6HrJQ)
 
@@ -37,7 +37,7 @@ just download the files directly for git hub.
 ![Image](Assets/two.PNG "Screenshot 1")
 ![Image](Assets/three.PNG "Screenshot 2")
 
-[Link](https://phillipmerriman.github.io/Group-Project-1/)
+[Link](https://rickycohen88.github.io/Word-Connections/)
 
 ### Credits
 * Trillogy Education
@@ -56,8 +56,6 @@ please open an issue first to discuss what you would like to change.<br>
 
 ### License
 
-    
-    © 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
 
 
    
