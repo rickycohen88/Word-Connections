@@ -40,7 +40,6 @@ just download the files directly for git hub.
 [Link](https://rickycohen88.github.io/Word-Connections/)
 
 ### Credits
-* Trillogy Education
 * White Board app [Link](https://awwapp.com/)
 * Github [Link](https://github.com/)
 * Gify-api [Link](https://developers.giphy.com/)

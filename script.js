@@ -1,6 +1,6 @@
 
 
-let searchText = $("#textarea").value;
+
 let video0 = "https://www.youtube.com/embed/";
 let searchValue = $("#textarea");
 let searchBtn = $("#search-button");
@@ -30,8 +30,9 @@ searchBtn.on("click", function () {
   setLocalStorage(textItem);
   searchValue.empty();
   SetHistory(textItem);
-  googleApi(textItem);
   dictionaryAPI(textItem);
+
+  googleApi();
   giphyAPI(textItem);
 });
 
@@ -59,9 +60,6 @@ function googleApi() {
 let youtubeAPI =
     "https://youtube.googleapis.com/youtube/v3/search?&maxResults=10&order=relevance&q="+searchText+"&type=video&videoEmbeddable=true&videoType=videoTypeUnspecified" +
     apiKeyArr[currApiKey];
-    
-    console.log(currApiKey);
-    console.log(youtubeAPI);
   
     $.ajax({ url: youtubeAPI, method: "GET" }).then(function (responce) {
     console.log(responce);
@@ -121,7 +119,7 @@ $("#previous-ytplayer").on("click", function(){
   }
 )
 
-function dictionaryAPI(searchText) {
+function dictionaryAPI() {
 $("#definitions").empty();
 let dict =
   "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" +
@@ -131,17 +129,17 @@ $.ajax({
   url: dict,
   method: "GET",
 }).then(function (response) {
-  $("#searched-word").text(searchText);
+   $("#searched-word").text(searchText);
   for (let i = 0; i < response[0].shortdef.length; i++) {
     let listItem = $("<li>");
     listItem.text(response[0].shortdef[i]);
     $("#definitions").append(listItem);
   }
-  $("#definition").empty();
+  
 });
 }
 
-function giphyAPI(textItem){
+function giphyAPI(){
 let apiKey = "tuMT3OKsTT4SHjMMy9Gye7GGpAmq9wSw";
 let giphyURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&limit=1&q=" + textItem;
 console.log(giphyURL);
